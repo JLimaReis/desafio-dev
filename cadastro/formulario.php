@@ -1,3 +1,26 @@
+<?php
+
+    if(isset($_POST['submit']))
+    {
+        // print_r($_POST['nome']);
+        // print_r($_POST['email']);
+        // print_r($_POST['telefone']);
+        // print_r($_POST['password']);
+
+        include_once('config.php');
+
+        $nome = $_POST['nome'];
+        $email = $_POST['email'];
+        $telefone = $_POST['telefone'];
+        $senha = $_POST['password'];
+
+        $result = mysqli_query($conexao, "INSERT INTO usuario(nome, email, telefone, senha) 
+        VALUES ('$nome', '$email', '$telefone', '$senha')");
+    }
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,18 +32,18 @@
 </head> 
 <body>
     <div class="box">
-        <form action="" id="register-form">
+        <form action="formulario.php" method="POST">
             <fieldset>
                 <legend><b>Cadastro de Usuário</b></legend>
                 <br>
                 <div class="inputbox">
-                    <input type="text" name="nome" id="nome" class="inputUser" required data-required data-min-length="3" data-max-length="100">
+                    <input type="text" name="nome" id="nome" class="inputUser" required>
                     <label for="nome" class="labelInput">Nome Completo</label>
                 </div>
                 <br><br>
 
                 <div class="inputbox">
-                    <input type="text" name="email" id="email" class="inputUser" required data-min-length="2" data-email-validate>
+                    <input type="text" name="email" id="email" class="inputUser" required>
                     <label for="email" class="labelInput">E-mail</label>
                 </div>
                 <br><br>
@@ -32,16 +55,16 @@
                 <br><br>
 
                 <div class="inputbox">
-                    <input type="password" name="password" id="password" class="inputUser" required data-password-validate data-required>
+                    <input type="password" name="password" id="password" class="inputUser" required>
                     <label for="password" class="labelInput">Senha</label>
                 </div>
                 <br><br>
 
-                <div class="inputbox">
+                <!-- <div class="inputbox">
                     <input type="password" name="passconfirmation" id="passconfirmation" class="inputUser" required data-equal="password">
                     <label for="passconfirmation" class="labelInput">Digite novamente sua Senha</label>
                 </div>
-                <br><br>
+                <br><br> -->
 
                 <input type="submit" name="submit" id="submit">
 
@@ -49,7 +72,7 @@
             </fieldset>
         </form>
     </div>
-    <p class="error-validation template"></p>
-    <script src="scripts.js"></script>
+    <!-- <p class="error-validation template"></p>
+    <script src="scripts.js"></script> -->
 </body>
 </html>
