@@ -1,5 +1,22 @@
+<!-- <?php
+include_once('config.php');
+
+//validacao do login
+
+if(isset($_POST['email'])){
+	$e = $_POST['email'];
+	$s = md5("cnab-".$_POST['pass']);
+
+	$conn = mysqli_query($conexao, "SELECT * FROM usuario WHERE email = '$e' AND senha = '$s'");
+
+	if($conn->nResultado()==1){
+		echo "ok";
+	}
+}
+?> -->
+
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
 	<title>Login</title>
 	<meta charset="UTF-8">
@@ -15,7 +32,6 @@
 <!--===============================================================================================-->
 </head>
 <body>
-	
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
@@ -23,13 +39,13 @@
 					<img src="images/img-01.png" alt="IMG">
 				</div>
 
-				<form class="login100-form validate-form">
+				<form class="login100-form validate-form" method="POST" action="login.php">
 					<span class="login100-form-title">
 						Área Administrativa - Login
 					</span>
 
 					<div class="wrap-input100 validate-input" data-validate = "Digite um E-mail válido: ex@abc.xyz">
-						<input class="input100" type="text" name="email" placeholder="E-mail">
+						<input class="input100" type="email" name="email" placeholder="E-mail">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-envelope" aria-hidden="true"></i>
@@ -45,19 +61,17 @@
 					</div>
 					
 					<div class="container-login100-form-btn">
-						<button class="login100-form-btn">
-							Acessar
-						</button>
+						<input class="login100-form-btn" type="submit" name="submit" value="Acessar" href="nav.php">
 					</div>
 
-					<div class="text-center p-t-12">
+					<!-- <div class="text-center p-t-12">
 						<span class="txt1">
 							Esqueceu seu
 						</span>
 						<a class="txt2" href="#">
 							Usuário ou Senha?
 						</a>
-					</div>
+					</div> -->
 
 					<div class="text-center p-t-136">
 						<a class="txt2" href="cadastro/formulario.php">

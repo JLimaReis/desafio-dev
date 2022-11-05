@@ -31,6 +31,7 @@
     <link rel="stylesheet" type="text/css" href="style.css">
 </head> 
 <body>
+<a href="../index.php" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Realizar Login</a>
     <div class="box">
         <form action="formulario.php" method="POST">
             <fieldset>
@@ -60,19 +61,9 @@
                 </div>
                 <br><br>
 
-                <!-- <div class="inputbox">
-                    <input type="password" name="passconfirmation" id="passconfirmation" class="inputUser" required data-equal="password">
-                    <label for="passconfirmation" class="labelInput">Digite novamente sua Senha</label>
-                </div>
-                <br><br> -->
-
-                <input type="submit" name="submit" id="submit">
-
-                
+                <input type="submit" name="submit" id="submit" value="Cadastrar">
             </fieldset>
         </form>
     </div>
-    <!-- <p class="error-validation template"></p>
-    <script src="scripts.js"></script> -->
 </body>
 </html>
